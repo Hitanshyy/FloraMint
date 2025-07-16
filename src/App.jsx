@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import './App.css';
 
 const picturesList = [
-  { id: 1, name: 'Rose', price: 100 , url: '/images/rose.jpg' },
-  { id: 2, name: ' White Tulip', price: 150, url: '/images/White tulips.jpg' },
-  { id: 3, name: 'Sunflower', price: 120, url: '/images/Sunflower.jpg' },
-  { id: 4, name: 'Daisy', price: 130, url: '/images/daisy.jpg' },
-  { id: 5, name: 'Hibiscus', price: 130, url: '/images/Hibiscus.jpg' },
-  { id: 6, name: 'Lilac', price: 130, url: '/images/lilac.jpg' },  
-  { id: 7, name: 'Lily', price: 130, url: '/images/lily.jpg' },
-  { id: 8, name: 'Marigold', price: 110, url: '/images/marigold.jpg' },
-  { id: 4, name: 'Lotus', price: 130, url: '/images/Lotus.jpg' },
+  { id: 1, name: 'Rose', price: 2 , url: '/images/rose.jpg' },
+  { id: 2, name: ' White Tulip', price: 8, url: '/images/White tulips.jpg' },
+  { id: 3, name: 'Sunflower', price: 5, url: '/images/Sunflower.jpg' },
+  { id: 4, name: 'Daisy', price: 5, url: '/images/daisy.jpg' },
+  { id: 5, name: 'Hibiscus', price: 3, url: '/images/Hibiscus.jpg' },
+  { id: 6, name: 'Lilac', price: 5, url: '/images/lilac.jpg' },  
+  { id: 7, name: 'Lily', price: 10, url: '/images/lily.jpg' },
+  { id: 8, name: 'Marigold', price: 2, url: '/images/marigold.jpg' },
+  { id: 4, name: 'Lotus', price: 10, url: '/images/Lotus.jpg' },
   
 ];
 
