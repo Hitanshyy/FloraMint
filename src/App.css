@@ -42,11 +42,13 @@ h1 {
   text-align: center;
   width: 240px;
   box-shadow: 0 4px 8px rgba(98, 168, 172, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.6s ease;
 }
 
 .picture-card:hover {
   transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(80, 133, 139, 0.2);
 }
 
 .picture-card img {
@@ -125,6 +127,7 @@ h1 {
 .cart button:hover {
   background-color: #5497A7;
 }
+
 .success-message {
   background-color: #d1f7c4;
   color: #2f6627;
@@ -134,7 +137,9 @@ h1 {
   border-radius: 8px;
   font-weight: bold;
   text-align: center;
+  animation: fadeIn 0.5s ease;
 }
+
 .cart-item-details {
   display: flex;
   flex-direction: column;
@@ -151,22 +156,14 @@ h1 {
   font-size: 0.9rem;
 }
 
-.cart-item-quantity {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 5px;
-}
-
-.quantity-btn {
-  background: #aed581;
-  border: none;
-  border-radius: 2px;
-  padding: 2px 4px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.quantity-btn:hover {
-  background: #9ccc65;
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

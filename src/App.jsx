@@ -7,7 +7,7 @@ const picturesList = [
   { id: 3, name: 'Sunflower', price: 5, url: '/images/Sunflower.jpg' },
   { id: 4, name: 'Daisy', price: 5, url: '/images/daisy.jpg' },
   { id: 5, name: 'Hibiscus', price: 3, url: '/images/Hibiscus.jpg' },
-  { id: 6, name: 'Lilac', price: 5, url: '/images/lilac.jpg' },  
+  { id: 6, name: 'Lilac', price: 5, url: '/images/lilac.jpg' },
   { id: 7, name: 'Lily', price: 10, url: '/images/lily.jpg' },
   { id: 8, name: 'Marigold', price: 2, url: '/images/marigold.jpg' },
   { id: 9, name: 'Lotus', price: 10, url: '/images/Lotus.jpg' },
@@ -19,31 +19,10 @@ function Floramint() {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   const handleBuy = (pic) => {
-    const existingItem = cart.find((item) => item.id === pic.id);
-    if (existingItem) {
-      const updatedCart = cart.map((item) =>
-        item.id === pic.id ? { ...item, quantity: item.quantity + 1 } : item
-      );
-      setCart(updatedCart);
-    } else {
-      setCart([...cart, { ...pic, quantity: 1 }]);
+    const alreadyInCart = cart.some((item) => item.id === pic.id);
+    if (!alreadyInCart) {
+      setCart([...cart, { ...pic }]);
     }
-  };
-
-  const handleIncrement = (id) => {
-    const updatedCart = cart.map((item) =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-    );
-    setCart(updatedCart);
-  };
-
-  const handleDecrement = (id) => {
-    const updatedCart = cart
-      .map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-      )
-      .filter((item) => item.quantity > 0);
-    setCart(updatedCart);
   };
 
   const handlePay = () => {
@@ -52,13 +31,10 @@ function Floramint() {
     setPictures(remainingPics);
     setCart([]);
     setPaymentSuccess(true);
-
-    setTimeout(() => {
-      setPaymentSuccess(false);
-    }, 3000);
+    setTimeout(() => setPaymentSuccess(false), 3000);
   };
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div className="App">
@@ -83,15 +59,15 @@ function Floramint() {
 
       <div className="cart">
         <h2>Shopping Cart</h2>
-        {cart.map((item) => (
-          <div key={item.id} className="cart-item">
-            <p>
-              {item.name}  = ${item.price * item.quantity}
-              <button onClick={() => handleDecrement(item.id)} style={{ margin: '0 5px' }}>−</button>
-              <button onClick={() => handleIncrement(item.id)}>+</button>
-            </p>
-          </div>
-        ))}
+        {cart.length === 0 ? (
+          <p>No items in cart.</p>
+        ) : (
+          cart.map((item) => (
+            <div key={item.id} className="cart-item">
+              <p>{item.name} = ${item.price}</p>
+            </div>
+          ))
+        )}
         <h3>Total: ${total}</h3>
         {cart.length > 0 && <button onClick={handlePay}>Pay</button>}
       </div>
