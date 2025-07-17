@@ -125,3 +125,48 @@ h1 {
 .cart button:hover {
   background-color: #5497A7;
 }
+.success-message {
+  background-color: #d1f7c4;
+  color: #2f6627;
+  border: 1px solid #a6e19a;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cart-item-price {
+  color: #388e3c;
+  font-size: 0.9rem;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.quantity-btn {
+  background: #aed581;
+  border: none;
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.quantity-btn:hover {
+  background: #9ccc65;
+}
